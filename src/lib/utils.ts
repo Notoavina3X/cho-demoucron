@@ -70,7 +70,7 @@ export function transposeMatrix(matrix: number[][]) {
 }
 
 export function getPathNodes(indexes: number[], nodes: Node[]) {
-	return nodes.filter((node, index) => indexes.includes(index));
+	return nodes.filter((_node, index) => indexes.includes(index));
 }
 
 export function getPathEdges(indexes: number[], nodes: Node[], edges: Edge[]) {
