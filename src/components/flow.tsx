@@ -9,14 +9,12 @@ import "reactflow/dist/style.css";
 import CustomEdge from "./custome-edge";
 
 function Flow() {
-	const {
-		nodes,
-		edges,
-		onNodesChange,
-		onEdgesChange,
-		onConnect,
-		onEdgeUpdate,
-	} = useFlowStore();
+	const nodes = useFlowStore((state) => state.nodes);
+	const edges = useFlowStore((state) => state.edges);
+	const onNodesChange = useFlowStore((state) => state.onNodesChange);
+	const onEdgesChange = useFlowStore((state) => state.onEdgesChange);
+	const onConnect = useFlowStore((state) => state.onConnect);
+	const onEdgeUpdate = useFlowStore((state) => state.onEdgeUpdate);
 
 	const edgeTypes: EdgeTypes = {
 		custom: CustomEdge,

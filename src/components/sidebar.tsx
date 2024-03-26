@@ -18,7 +18,11 @@ import { _NODES, _EDGES } from "../lib/constants";
 
 const Sidebar = () => {
 	const navigate = useNavigate();
-	const { nodes, edges, resetGraph, addNode, addEdge } = useFlowStore();
+	const nodes = useFlowStore((state) => state.nodes);
+	const edges = useFlowStore((state) => state.edges);
+	const resetGraph = useFlowStore((state) => state.resetGraph);
+	const addNode = useFlowStore((state) => state.addNode);
+	const addEdge = useFlowStore((state) => state.addEdge);
 	const handleNavigation = (value: "minimal" | "maximal") => {
 		navigate({ to: `/${value}` });
 	};
@@ -40,9 +44,10 @@ const Sidebar = () => {
 					<DropdownMenuContent>
 						<DropdownMenuLabel className="max-w-sm">
 							Commencez par ajouter un <strong>sommet</strong> en cliquant sur
-							le bouton "+" ci-dessous. Une fois plusieurs sommets créés, reliez
-							les par les <strong>arcs</strong> via les points noirs sur les
-							sommets, et donnez sa valeur dans la liste des arcs.
+							le bouton "+" ci-dessous. Une fois plusieurs sommets créés,
+							reliez-les par des <strong>arcs</strong> via les points noirs sur
+							les sommets, et donnez leurs valeurs respectives dans la liste des
+							arcs.
 						</DropdownMenuLabel>
 						<DropdownMenuSeparator />
 						<div className="flex justify-end p-2">

@@ -8,7 +8,7 @@ type Props = {
 };
 
 const EdgeComponent = ({ edge }: Props) => {
-	const { customUpdateEdge } = useFlowStore();
+	const customUpdateEdge = useFlowStore((state) => state.customUpdateEdge);
 	const [value, setValue] = useState<string | number>(edge.data?.label ?? "");
 
 	const handleLabelChange = (newLabel: number) => {

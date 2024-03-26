@@ -35,8 +35,6 @@ export function extractNodesJoined(nodes: Node[], edges: Edge[]) {
 		}
 	}
 
-	// console.log("ExtractNodes", edges);
-
 	return nodesJoined;
 }
 

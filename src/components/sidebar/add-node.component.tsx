@@ -7,9 +7,11 @@ import { Label } from "../ui/label";
 import { useCallback, useState } from "react";
 import useFlowStore from "@/stores/flow.store";
 import { Node } from "reactflow";
+import { cn } from "@/lib/utils";
 
 const AddNode = () => {
-	const { nodes, addNode } = useFlowStore();
+	const nodes = useFlowStore((state) => state.nodes);
+	const addNode = useFlowStore((state) => state.addNode);
 
 	const [nodeName, setNodeName] = useState("");
 	const [isOutput, setIsOutput] = useState(false);
@@ -61,7 +63,7 @@ const AddNode = () => {
 				<Button
 					variant="outline"
 					size="icon"
-					className="w-8 h-8"
+					className={cn("w-8 h-8", !nodes.length && "animate-pulse")}
 				>
 					<Plus className="w-4 h-4" />
 				</Button>
@@ -91,6 +93,7 @@ const AddNode = () => {
 								id="output"
 								checked={isOutput}
 								onCheckedChange={setIsOutput}
+								disabled={!!nodes.find((node) => node.type === "output")}
 							/>
 						</div>
 					</div>

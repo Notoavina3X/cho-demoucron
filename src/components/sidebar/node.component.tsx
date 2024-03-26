@@ -4,7 +4,7 @@ import useFlowStore from "@/stores/flow.store";
 import { useEffect, useState } from "react";
 
 const NodeComponent = ({ id, type, data: { label } }: Node) => {
-	const { editNodeLabel } = useFlowStore();
+	const editNodeLabel = useFlowStore((state) => state.editNodeLabel);
 	const [value, setValue] = useState<string>(label);
 
 	const handleEditLabel = (e: React.ChangeEvent<HTMLInputElement>) => {

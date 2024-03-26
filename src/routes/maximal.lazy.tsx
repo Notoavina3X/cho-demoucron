@@ -20,7 +20,10 @@ import { useCallback, useEffect, useState } from "react";
 import { MarkerType } from "reactflow";
 
 const Maximal = () => {
-	const { nodes, edges, updateNodesColor, customUpdateEdge } = useFlowStore();
+	const nodes = useFlowStore((state) => state.nodes);
+	const edges = useFlowStore((state) => state.edges);
+	const updateNodesColor = useFlowStore((state) => state.updateNodesColor);
+	const customUpdateEdge = useFlowStore((state) => state.customUpdateEdge);
 	const [matrixN, setMatrixN] = useState<number[][][]>([]);
 	const [explanations, setExplanations] = useState<Explanation[]>([]);
 	const [titles, setTitles] = useState<string[]>([]);
