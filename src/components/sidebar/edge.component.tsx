@@ -1,13 +1,15 @@
 import useFlowStore from "@/stores/flow.store";
 import { Edge } from "reactflow";
 import { Button } from "../ui/button";
-import { useState } from "react";
+import { memo, useState } from "react";
+import { getLabelById } from "@/lib/utils";
 
 type Props = {
 	edge: Edge;
 };
 
-const EdgeComponent = ({ edge }: Props) => {
+const EdgeComponent = memo(({ edge }: Props) => {
+	const nodes = useFlowStore((state) => state.nodes);
 	const customUpdateEdge = useFlowStore((state) => state.customUpdateEdge);
 	const [value, setValue] = useState<string | number>(edge.data?.label ?? "");
 
@@ -46,7 +48,8 @@ const EdgeComponent = ({ edge }: Props) => {
 			className="px-3 py-2 rounded flex justify-between items-center bg-slate-50"
 		>
 			<span className="font-bold text-xs">
-				{edge.source} → {edge.target} :
+				{getLabelById(nodes, edge.source)} → {getLabelById(nodes, edge.target)}{" "}
+				:
 			</span>
 			<div className="flex gap-1">
 				<Button
@@ -61,7 +64,7 @@ const EdgeComponent = ({ edge }: Props) => {
 					type="number"
 					className="font-semibold text-xs bg-transparent max-w-[4ch] text-center outline-none"
 					min={0}
-					value={value}
+					value={edge.data?.label ?? ""}
 					onChange={handleChange}
 				/>
 				<Button
@@ -74,6 +77,6 @@ const EdgeComponent = ({ edge }: Props) => {
 			</div>
 		</div>
 	);
-};
+});
 
 export default EdgeComponent;

@@ -65,7 +65,7 @@ const Sidebar = () => {
 			<ScrollArea className="pr-3">
 				<div className="flex flex-col gap-2">
 					<div className="flex items-center justify-between">
-						<label className="font-semibold">Sommets</label>
+						<label className="font-semibold">Sommets: {nodes.length}</label>
 						<AddNode />
 					</div>
 					<div className="flex flex-col gap-1">
@@ -82,7 +82,7 @@ const Sidebar = () => {
 				</div>
 				<hr />
 				<div className="flex flex-col gap-2">
-					<label className="font-semibold">Arcs</label>
+					<label className="font-semibold">Arcs: {edges.length}</label>
 					<div className="flex flex-col gap-1">
 						{edges
 							.sort((a, b) => {
@@ -118,11 +118,17 @@ const Sidebar = () => {
 						<Button>Trouver le chemin</Button>
 					</DropdownMenuTrigger>
 					<DropdownMenuContent>
-						<DropdownMenuItem onClick={() => handleNavigation("minimal")}>
+						<DropdownMenuItem
+							className="cursor-pointer"
+							onClick={() => handleNavigation("minimal")}
+						>
 							<TrendingDown className="mr-2 h-4 w-4" />
 							<span>Chemin Minimal</span>
 						</DropdownMenuItem>
-						<DropdownMenuItem onClick={() => handleNavigation("maximal")}>
+						<DropdownMenuItem
+							className="cursor-pointer"
+							onClick={() => handleNavigation("maximal")}
+						>
 							<TrendingUp className="mr-2 h-4 w-4" />
 							<span>Chemin Maximal</span>
 						</DropdownMenuItem>

@@ -85,6 +85,7 @@ const AddNode = () => {
 								value={nodeName}
 								onChange={(e) => setNodeName(e.target.value)}
 								placeholder="(id) par défaut"
+								autoComplete="off"
 							/>
 						</div>
 						<div className="grid items-center grid-cols-3 gap-4">

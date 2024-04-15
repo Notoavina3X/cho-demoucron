@@ -177,7 +177,10 @@ const Minimal = () => {
 														<sup>({index})</sup>, V
 														<sub>{explanation.input + explanation.output}</sub>
 														<sup>({index})</sup>] = min[{explanation.w},{" "}
-														{explanation.vij1}] ={" "}
+														{explanation.vij1 == Infinity
+															? "+∞"
+															: explanation.vij1}
+														] ={" "}
 														<span className="text-yellow-400 font-semibold">
 															{explanation.vij2}
 														</span>

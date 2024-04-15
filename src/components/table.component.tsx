@@ -9,7 +9,7 @@ type Props = {
 
 const TableComponent = ({ data, oldData, titles, k }: Props) => {
 	return (
-		<div>
+		<div className="max-w-lg overflow-x-scroll">
 			<table>
 				<thead>
 					<tr>

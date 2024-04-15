@@ -6,6 +6,11 @@ export function cn(...inputs: ClassValue[]) {
 	return twMerge(clsx(inputs));
 }
 
+export function getLabelById(array: Node[], id: number | string) {
+	const object = array.find((item) => item.id === id);
+	return object ? object.data.label : null;
+}
+
 export function extractMatrix(n: number, type: "minimal" | "maximal") {
 	if (typeof n !== "number" || n <= 0) {
 		return [];
