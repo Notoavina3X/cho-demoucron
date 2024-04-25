@@ -31,11 +31,12 @@ const Sidebar = () => {
 		resetGraph();
 		_NODES.map((node) => addNode(node));
 		_EDGES.map((edge) => addEdge(edge));
+		navigate({ to: "/" });
 	};
 
 	return (
-		<aside className="flex flex-col h-screen gap-5 p-6 pr-2 border-r justify-between overflow-hidden">
-			<div className="flex justify-between items-center">
+		<aside className="flex flex-col justify-between h-screen gap-5 p-6 pr-2 overflow-hidden border-r">
+			<div className="flex items-center justify-between">
 				<h3 className="text-lg font-bold">Eléments du graphe</h3>
 				<DropdownMenu>
 					<DropdownMenuTrigger>
@@ -122,14 +123,14 @@ const Sidebar = () => {
 							className="cursor-pointer"
 							onClick={() => handleNavigation("minimal")}
 						>
-							<TrendingDown className="mr-2 h-4 w-4" />
+							<TrendingDown className="w-4 h-4 mr-2" />
 							<span>Chemin Minimal</span>
 						</DropdownMenuItem>
 						<DropdownMenuItem
 							className="cursor-pointer"
 							onClick={() => handleNavigation("maximal")}
 						>
-							<TrendingUp className="mr-2 h-4 w-4" />
+							<TrendingUp className="w-4 h-4 mr-2" />
 							<span>Chemin Maximal</span>
 						</DropdownMenuItem>
 					</DropdownMenuContent>
