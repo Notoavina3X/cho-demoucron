@@ -66,29 +66,6 @@ export function getMatrixN(
 	return { matrix, explanations };
 }
 
-/* export function getPathIndexes(
-	matrix: number[][],
-	matrix1: number[][]
-): number[] {
-	let maxValueIndex = matrix.length - 1;
-	const indexes: number[] = [];
-
-	for (let i = 0; i < matrix.length; i++) {
-		indexes.push(maxValueIndex);
-		if (maxValueIndex === 0) break;
-
-		const extratedColumnValue = matrix.map((row) => row[maxValueIndex]);
-		const extractedMat1ColumnValue = matrix1.map((row) => row[maxValueIndex]);
-
-		maxValueIndex = extratedColumnValue.indexOf(
-			findMaximumValues(extratedColumnValue, extractedMat1ColumnValue)
-		);
-		// console.log("Max Value Index", maxValueIndex);
-	}
-
-	return indexes;
-} */
-
 export function getPathIndexes(
 	matrix1: number[][],
 	matrixN: number[][]
