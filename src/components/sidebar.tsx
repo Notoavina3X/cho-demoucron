@@ -31,7 +31,6 @@ const Sidebar = () => {
 		resetGraph();
 		_NODES.map((node) => addNode(node));
 		_EDGES.map((edge) => addEdge(edge));
-		navigate({ to: "/" });
 	};
 
 	return (
@@ -110,7 +109,10 @@ const Sidebar = () => {
 				<Button
 					variant={"outline"}
 					size={"icon"}
-					onClick={() => resetGraph()}
+					onClick={() => {
+						resetGraph();
+						navigate({ to: "/" });
+					}}
 				>
 					<RotateCcw size={16} />
 				</Button>
